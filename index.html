@@ -15,6 +15,9 @@
 			margin: 0;
 			padding: 0;
 			font-family: 'Verdana';
+		}
+
+		body {
 			overflow: hidden;
 		}
 
@@ -7468,6 +7471,7 @@ XLS.SSF = SSF;
 				bfd.setDate(bfd.getDate() + 2);
 				bfd = bfd.toLocaleDateString();
 
+				console.log(bfd);
                 var data = e.target.result;
                 var cfb = XLS.CFB.read(data, {type: 'binary'});
                 var wb = XLS.parse_xlscfb(cfb);
