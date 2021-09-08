@@ -14,22 +14,37 @@
 		* {
 			margin: 0;
 			padding: 0;
+			font-family: 'Verdana';
 		}
 
 		.render {
 			display: none;
-			margin-left: 20px;
-			margin-top: 20px;
+		}
+
+		#meat {
+			background-color: blue;
+		}
+
+		#bread {
+			background-color: red;
+		}
+
+		#kitchen {
+			background-color: green;
 		}
 
 		@media print {
   			input { 
 				display: none;
+				position: fixed;
+				top: 10px;
+				left: 10px;
 			}
 
 			.render {
 				display: block;
-				height: 297mm;
+				padding: 20px;
+				height: 301.5mm;
 				width: 210mm;
 			}
 		}
@@ -7457,16 +7472,12 @@ XLS.SSF = SSF;
                     var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
                     var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);   
 
-                    
-                    // console.log(oJS)
                     for (let i = 0; i < oJS.length; i++) {
                       if(oJS[i].EAN.indexOf("2014") !== -1){
-						// console.log(oJS[i][ 'Standardkategori för produkten(VGR Namn)' ])
-                        // console.log(oJS[i]);
 						objects.push(oJS[i]);
                       }
                     }
-					// $("#meat").html(meat[0].EAN);
+
 					$('#meat').append(`<p>Dagens datum: ${today} </p>`);
 					$('#meat').append(`<p>Minsta bäst före datum: ${bfd} </p>`);
 					$('#meat').append(`<br />`);
@@ -7476,6 +7487,7 @@ XLS.SSF = SSF;
 					$('#kitchen').append(`<p>Dagens datum: ${today} </p>`);
 					$('#kitchen').append(`<p>Minsta bäst före datum: ${bfd} </p>`);
 					$('#kitchen').append(`<br />`);
+
 					objects.forEach(element => {
 						var amount = 0;
 						if (!element.Kvantitet) {
@@ -7501,27 +7513,21 @@ XLS.SSF = SSF;
 						}
 
 						if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Kött") !== -1){
-                          	// console.log(oJS[i].Produktnamn);
 						  	$('#meat').append(`<p>${element.EAN.substring(4,8)} ${element.Produktnamn} ${amount}st</p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Bröd") !== -1){
-							// console.log(oJS[i].Produktnamn);
 							$('#bread').append(`<p>${element.EAN.substring(4,8)} ${element.Produktnamn} ${amount}st</p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Fågel") !== -1){
-							// console.log(oJS[i].Produktnamn);
 							$('#kitchen').append(`<p>${element.EAN.substring(4,8)} ${element.Produktnamn} ${amount}st</p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Sallader") !== -1){
-							// console.log(oJS[i].Produktnamn);
 							$('#kitchen').append(`<p>${element.EAN.substring(4,8)} ${element.Produktnamn} ${amount}st</p>`);
                         }
 						
 					});
 					window.print();
 					location.reload();
-					//$("#my_file_input")[0].value = "";
-					// $("#my_file_output").html(objects[0].EAN);
                 });
             };
             
@@ -7534,26 +7540,22 @@ XLS.SSF = SSF;
     <noscript>You need to enable JavaScript to run this app.</noscript>
 	<input type="file" id="my_file_input" />
 	
-    <div class="render" id='meat'>
-		<h1>Kött</h1>
+    <div class="render">
+		<div class="content" id='meat'>
+			<h1>Kött</h1>
+		</div>
 	</div>
 	
-	<div class="render" id='bread'>
-		<h1>Bröd</h1>
+	<div class="render">
+		<div class="content" id='bread'>
+			<h1>Bröd</h1>
+		</div>
 	</div>
 	
-	<div class="render" id='kitchen'>
-		<h1>Kök</h1>
+	<div class="render">
+		<div class="content" id='kitchen'>
+			<h1>Kök</h1>
+		</div>
 	</div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
