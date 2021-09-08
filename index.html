@@ -21,6 +21,11 @@
 			display: none;
 		}
 
+		input {
+			width: 100vw;
+			height: 100vh;
+		}
+
 		#meat {
 			background-color: blue;
 		}
@@ -7462,7 +7467,6 @@ XLS.SSF = SSF;
 				bfd.setDate(bfd.getDate() + 2);
 				bfd = bfd.toLocaleDateString();
 
-				console.log(bfd);
                 var data = e.target.result;
                 var cfb = XLS.CFB.read(data, {type: 'binary'});
                 var wb = XLS.parse_xlscfb(cfb);
