@@ -7525,16 +7525,16 @@ XLS.SSF = SSF;
 						}
 
 						if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Kött") !== -1){
-						  	$('#meat').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} ${amount}st</p>`);
+						  	$('#meat').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'VGR nr.' ] === "437"){
-							$('#bread').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} ${amount}st</p>`);
+							$('#bread').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Fågel") !== -1){
-							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} ${amount}st</p>`);
+							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Sallader") !== -1){
-							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} ${amount}st</p>`);
+							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						
 					});
