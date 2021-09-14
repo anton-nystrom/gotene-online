@@ -7471,7 +7471,7 @@ XLS.SSF = SSF;
 					var today = new Date(objects[0][ 'Leverans-datum' ]).toLocaleDateString("sv-SE");
 					var bfd = new Date(objects[0][ 'Leverans-datum' ]);
 					bfd.setDate(bfd.getDate() + 2);
-					bfd = bfd.toLocaleDateString();
+					bfd = bfd.toLocaleDateString("sv-SE");
 					$('#meat').append(`<p>Leverans-datum: ${today} </p>`);
 					$('#meat').append(`<p>Minsta bäst före datum: ${bfd} </p>`);
 					$('#meat').append(`<br />`);
@@ -7516,13 +7516,13 @@ XLS.SSF = SSF;
 						  	$('#meat').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'VGR nr.' ] === "437"){
-							$('#bread').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
+							$('#bread').append(`<p>Kl:${element[ 'Slot-Tid' ]} ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Fågel") !== -1){
-							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
+							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						else if(element[ 'Standardkategori för produkten(VGR Namn)' ].indexOf("Sallader") !== -1){
-							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} <b>${element.EAN.substring(4,8)}</b> ${element.Produktnamn} <b>${amount}st</b></p>`);
+							$('#kitchen').append(`<p>Kl:${element[ 'Slot-Tid' ]} ${element.Produktnamn} <b>${amount}st</b></p>`);
                         }
 						
 					});
